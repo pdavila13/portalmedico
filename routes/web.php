@@ -19,3 +19,6 @@ Route::get('/', function () {
 });
 
 Route::get('/inicio', [MyController::class, 'index']);
+
+//Usando rutas con enlace simbólico
+Route::get('/fin', [MyController::class, 'end'])->name('end');

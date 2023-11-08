@@ -9,4 +9,8 @@ class MyController extends Controller
     public function index () {
         return view('inicio');
     }
+
+    public function end() {
+        return view ('fin');
+    }
 }
