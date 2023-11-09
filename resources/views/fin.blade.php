@@ -18,5 +18,13 @@
         <input type="file" name="img" id="img"><br>
         <button type="submit">Enviar</button>
     </form>
+
+    
+    @php
+        $codigoHTML = "<strong>texto en negrita</strong>";
+    @endphp
+    {!! $codigoHTML !!} <!-- Introducir formato HTLML -->
+    <br>
+    {{ $codigoHTML }} <!-- Introducir codigo HTLML  -->
 </body>
 </html>
