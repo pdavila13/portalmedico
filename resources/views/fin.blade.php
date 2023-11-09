@@ -23,6 +23,7 @@
     @php
         $codigoHTML = "<strong>texto en negrita</strong>";
         $valor = 'B';
+        $array =[1,2,3,5,9,11];
     @endphp
     {!! $codigoHTML !!} <!-- Introducir formato HTLML -->
     <br>
@@ -37,5 +38,12 @@
     @unless ($valor == 'A')
         El valor no es A <br>
     @endunless
+
+    <!-- Bucles -->
+    @foreach ($array as $key => $item )
+        Posición: {{ $key }} <strong>{{ $item }}</strong><br>
+    @endforeach
+
+
 </body>
 </html>
