@@ -22,6 +22,8 @@ Route::get('/principio/{name}/ver/{surname}', [HomeController::class, 'index'])-
 
 //Usando rutas con enlace simbólico
 Route::get('/fin', [HomeController::class, 'end'])->name('end');
+Route::get('/end', [HomeController::class, 'end'])->name('end');
+Route::post('/end', [HomeController::class, 'save'])->name('savefile');
 
 //Prefijos para aplicaciones grandes
 Route::prefix('nom')->group(
