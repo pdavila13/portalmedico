@@ -49,5 +49,16 @@
         Elemento: {{ $array [$i++] }} <br>
     @endwhile
 
+    @switch($valor)
+        @case('A')
+            La letra es la A <br>
+        @break
+        @case('B')
+            La letra es la B <br>
+        @break
+        @default
+            Por defecto
+    @endswitch
+
 </body>
 </html>
