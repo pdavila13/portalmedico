@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class HomeController extends Controller
 {
@@ -18,7 +19,7 @@ class HomeController extends Controller
         if ($request->hasfile('img')) {
             $ruta = $request->file('img')->store('public/images');
         }
-
-        return "Fichero guardado en $ruta";
+        $url = Storage::url($ruta);
+        return "Fichero guardado en $ruta <br> $url";
     }
 }
