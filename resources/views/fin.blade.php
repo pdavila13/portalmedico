@@ -10,6 +10,6 @@
     <h1>Ruta Fin</h1>
     <a href="/inicio">Ir a inicio</a><br>
     <a href="{{ url('/inicio') }}">Ir a inicio</a><br>
-    <a href="{{ route('index') }}">Ir a inicio</a>
+    <a href="{{ route('index', 'Paolo') }}">Ir a inicio</a>
 </body>
 </html>
