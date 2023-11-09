@@ -15,6 +15,10 @@ class HomeController extends Controller
     }
 
     public function save (Request $request) {
-        $request->file('img')->store('public/images');
+        if ($request->hasfile('img')) {
+            $ruta = $request->file('img')->store('public/images');
+        }
+
+        return "Fichero guardado en $ruta";
     }
 }
