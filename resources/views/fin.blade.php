@@ -12,7 +12,7 @@
     <a href="{{ url('/inicio') }}">Ir a inicio</a><br>
     <a href="{{ route('index', ['name' => 'Paolo', 'surname' => 'Davila']) }}">Ir a inicio</a>
     <br>
-    <form method="POST" action="{{ route ('savefile') }}">
+    <form method="POST" action="{{ route ('savefile') }}" enctype="multipart/form-data">
         @csrf
         <input type="text" name="nombre" id="nombre"><br>
         <input type="file" name="img" id="img"><br>
