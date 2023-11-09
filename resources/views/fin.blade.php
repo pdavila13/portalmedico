@@ -24,6 +24,7 @@
         $codigoHTML = "<strong>texto en negrita</strong>";
         $valor = 'B';
         $array =[1,2,3,5,9,11];
+        $i = 0;
     @endphp
     {!! $codigoHTML !!} <!-- Introducir formato HTLML -->
     <br>
@@ -44,6 +45,9 @@
         Posición: {{ $key }} <strong>{{ $item }}</strong><br>
     @endforeach
 
+    @while ($i < 5)
+        Elemento: {{ $array [$i++] }} <br>
+    @endwhile
 
 </body>
 </html>
