@@ -34,6 +34,8 @@
         El valor es A <br>
     @endif
 
-    
+    @unless ($valor == 'A')
+        El valor no es A <br>
+    @endunless
 </body>
 </html>
