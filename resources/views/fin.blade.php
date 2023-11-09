@@ -13,6 +13,7 @@
     <a href="{{ route('index', ['name' => 'Paolo', 'surname' => 'Davila']) }}">Ir a inicio</a>
     <br>
     <form method="POST">
+        @csrf
         <input type="text" name="nombre" id="nombre"><br>
         <input type="file" name="img" id="img"><br>
         <button type="submit">Enviar</button>
