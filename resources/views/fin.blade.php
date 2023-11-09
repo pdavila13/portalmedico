@@ -26,5 +26,7 @@
     {!! $codigoHTML !!} <!-- Introducir formato HTLML -->
     <br>
     {{ $codigoHTML }} <!-- Introducir codigo HTLML  -->
+
+    {{-- Comentario en blade --}}
 </body>
 </html>
