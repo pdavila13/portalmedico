@@ -31,3 +31,10 @@ Route::prefix('nom')->group(
     }
 );
 
+Route::prefix('vac')->group(
+    function ()
+    {
+        Route::get('/fin', [MyController::class, 'end'])->name('end');
+    }
+);
+
