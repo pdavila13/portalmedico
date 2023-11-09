@@ -1,3 +1,3 @@
-<div>
-    <!-- Very little is needed to make a happy life. - Marcus Aurelius -->
+<div style="background-color: #80ced6">
+    Mi card.
 </div>
