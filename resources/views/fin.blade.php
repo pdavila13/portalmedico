@@ -22,11 +22,18 @@
     
     @php
         $codigoHTML = "<strong>texto en negrita</strong>";
+        $valor = 'B';
     @endphp
     {!! $codigoHTML !!} <!-- Introducir formato HTLML -->
     <br>
     {{ $codigoHTML }} <!-- Introducir codigo HTLML  -->
 
     {{-- Comentario en blade --}}
+
+    @if ($valor == 'A') 
+        El valor es A <br>
+    @endif
+
+    
 </body>
 </html>
