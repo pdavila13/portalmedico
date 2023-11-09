@@ -20,7 +20,7 @@ class HomeController extends Controller
             $ruta = $request->file('img')->store('public/images');
         }
         $url = Storage::url($ruta);
-        Storage::delete($ruta);
+        //Storage::delete($ruta);
         return "Fichero guardado en $ruta <br> $url";
     }
 }
