@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\MyController;
+use App\Http\Controllers\HomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,23 +18,23 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/principio/{name}/ver/{surname}', [MyController::class, 'index'])->name('index');
+Route::get('/principio/{name}/ver/{surname}', [HomeController::class, 'index'])->name('index');
 
 //Usando rutas con enlace simbólico
-Route::get('/fin', [MyController::class, 'end'])->name('end');
+Route::get('/fin', [HomeController::class, 'end'])->name('end');
 
 //Prefijos para aplicaciones grandes
 Route::prefix('nom')->group(
     function ()
     {
-        Route::get('/fin', [MyController::class, 'end'])->name('end');
+        Route::get('/fin', [HomeController::class, 'end'])->name('end');
     }
 );
 
 Route::prefix('vac')->group(
     function ()
     {
-        Route::get('/fin', [MyController::class, 'end'])->name('end');
+        Route::get('/fin', [HomeController::class, 'end'])->name('end');
     }
 );
 
