@@ -22,3 +22,12 @@ Route::get('/principio/{name}/ver/{surname}', [MyController::class, 'index'])->n
 
 //Usando rutas con enlace simbólico
 Route::get('/fin', [MyController::class, 'end'])->name('end');
+
+//Prefijos para aplicaciones grandes
+Route::prefix('nom')->group(
+    function ()
+    {
+        Route::get('/fin', [MyController::class, 'end'])->name('end');
+    }
+);
+
