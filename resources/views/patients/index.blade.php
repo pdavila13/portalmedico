@@ -3,5 +3,5 @@
 @section('content')
     Contenido para el layout principal.
 
-    <x-card/>
+    <x-card bgcolor="FFA0A0" />
 @endsection

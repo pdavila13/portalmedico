@@ -1,3 +1,3 @@
-<div style="background-color: #80ced6">
+<div style="background-color: #{{ $bgcolor }}">
     Mi card.
 </div>
