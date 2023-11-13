@@ -28,7 +28,7 @@ Route::post('/fin', [HomeController::class, 'save'])->name('savefile');
 //Prefijos para aplicaciones grandes
 Route::prefix('patients')->group (function () {
     Route::get('/index', function () {
-        return view ('patients.index');
+        return view ('patients.index', ['nombre' => 'Paolo Davila']);
     });
 });
 
