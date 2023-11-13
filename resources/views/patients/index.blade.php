@@ -3,7 +3,7 @@
 @section('content')
     Contenido para el layout principal.
 
-    <x-card bgcolor="FFA0A0">
+    <x-card bgcolor="FFA0A0" :paciente="$nombre">
         <x-slot:texto >
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <strong>Duis aute irure dolor in reprehenderit 
