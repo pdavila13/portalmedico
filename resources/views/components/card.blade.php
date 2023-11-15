@@ -5,4 +5,7 @@
     @endisset
     
     {{ $texto }}
+    <div>
+        {{ $botones }}
+    </div>
 </div>
