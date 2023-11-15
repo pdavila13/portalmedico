@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/pedircita', [HomeController::class, 'index'])->name('falsa');
 Route::get('/principio/{name}/ver/{surname}', [HomeController::class, 'index'])->name('index');
 
 //Usando rutas con enlace simbólico
