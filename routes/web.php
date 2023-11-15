@@ -50,5 +50,6 @@ Route::prefix('vac')->group(
 
 //Rutas para Doctors
 Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index');
-Route::get('doctors/create', [DoctorController::class, 'create'])->name('doctors.create');
-Route::get('doctors/{id}', [DoctorController::class, 'show'])->name('doctors.show');
+Route::get('/doctors/create', [DoctorController::class, 'create'])->name('doctors.create');
+Route::get('/doctors/{id}', [DoctorController::class, 'show'])->name('doctors.show');
+Route::post('/doctors/store', [DoctorController::class, 'store'])->name('doctors.store');
