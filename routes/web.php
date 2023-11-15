@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DoctorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -47,3 +48,5 @@ Route::prefix('vac')->group(
     }
 );
 
+//Rutas para Doctors
+Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index');
