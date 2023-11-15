@@ -50,3 +50,4 @@ Route::prefix('vac')->group(
 
 //Rutas para Doctors
 Route::get('/doctors', [DoctorController::class, 'index'])->name('doctors.index');
+Route::get('doctors/{id}', [DoctorController::class, 'show'])->name('doctors.show');
