@@ -1,5 +1,7 @@
 @extends('layout')
 
 @section('menu')
-    Aqui irá el menu de pacientes
+    <h1 class="text-3xl font-bold underline">
+        Aqui irá el menu de pacientes
+    </h1> 
 @endsection
