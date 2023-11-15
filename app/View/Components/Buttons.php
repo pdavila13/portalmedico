@@ -9,6 +9,7 @@ use Illuminate\View\Component;
 class Buttons extends Component
 {
     public $botones = [];
+    public $bgcolor = "";
     /**
      * Create a new component instance.
      */
@@ -16,8 +17,10 @@ class Buttons extends Component
     {
         if ($canEdit == 1) {
             $this->botones = ['Volver', 'Ver', 'Editar'];
+            $this->bgcolor="#A0FFA0";
         } else {
             $this->botones = ['Volver', 'Ver'];
+            $this->bgcolor="#FFFFA0";
         }
     }
 
