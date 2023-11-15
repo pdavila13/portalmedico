@@ -1,3 +1,6 @@
 <div>
-    <!-- Smile, breathe, and go slowly. - Thich Nhat Hanh -->
+    <!-- Well begun is half done. - Aristotle -->
+    @foreach ($botones as $boton)
+        <button> {{ $boton }}</button> 
+    @endforeach
 </div>

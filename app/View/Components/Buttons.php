@@ -8,12 +8,17 @@ use Illuminate\View\Component;
 
 class Buttons extends Component
 {
+    public $botones = [];
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public function __construct($canEdit = 0)
     {
-        //
+        if ($canEdit == 1) {
+            $this->botones = ['Volver', 'Ver', 'Editar'];
+        } else {
+            $this->botones = ['Volver', 'Ver'];
+        }
     }
 
     /**

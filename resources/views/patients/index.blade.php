@@ -20,4 +20,7 @@
             mollit anim id est laborum.
         </x-slot:texto>
     </x-card>
+    <x-buttons canEdit="1"/>
+    <br>
+    <x-buttons canEdit="0"/>
 @endsection
