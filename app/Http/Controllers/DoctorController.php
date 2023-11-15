@@ -31,4 +31,8 @@ class DoctorController extends Controller
 
         return view('doctors.show', ['doctor' => $doctors[$key]]);
     }
+
+    public function create() {
+        
+    }
 }
