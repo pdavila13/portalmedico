@@ -37,7 +37,7 @@ class DoctorController extends Controller
     }
 
     public function store(Request $request) {
-        dd($request);
-        return "Ha llegado";
+        //dd($request);
+        return redirect()->route('doctors.index')->with('message', 'Doctor guardado correctamente.')->with('code','0');
     }
 }
