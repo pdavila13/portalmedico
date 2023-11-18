@@ -37,7 +37,6 @@ class DoctorController extends Controller
     }
 
     public function store(Request $request) {
-        //dd($request);
         return redirect()->route('doctors.index')->with('message', 'Doctor guardado correctamente.')->with('code','0');
     }
 
@@ -57,5 +56,9 @@ class DoctorController extends Controller
         }
 
         return view('doctors.edit', ['doctor' => $doctors[$key]]);
+    }
+
+    public function update(Request $request, $id) {
+        return redirect()->route('doctors.index')->with('message', 'Doctor guardado correctamente.')->with('code','0');
     }
 }

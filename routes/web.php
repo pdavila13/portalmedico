@@ -54,3 +54,4 @@ Route::get('/doctors/create', [DoctorController::class, 'create'])->name('doctor
 Route::post('/doctors/store', [DoctorController::class, 'store'])->name('doctors.store');
 Route::get('/doctors/{id}', [DoctorController::class, 'show'])->name('doctors.show');
 Route::get('/doctors/{id}/edit', [DoctorController::class, 'edit'])->name('doctors.edit');
+Route::put('/doctors/{id}', [DoctorController::class, 'update'])->name('doctors.update');
