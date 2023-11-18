@@ -61,4 +61,8 @@ class DoctorController extends Controller
     public function update(Request $request, $id) {
         return redirect()->route('doctors.index')->with('message', 'Doctor guardado correctamente.')->with('code','0');
     }
+    
+    public function destroy($id) {
+        return redirect()->route('doctors.index')->with('message', 'Doctor borrado correctamente.')->with('code','0');
+    }
 }

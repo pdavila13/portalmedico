@@ -55,3 +55,4 @@ Route::post('/doctors/store', [DoctorController::class, 'store'])->name('doctors
 Route::get('/doctors/{id}', [DoctorController::class, 'show'])->name('doctors.show');
 Route::get('/doctors/{id}/edit', [DoctorController::class, 'edit'])->name('doctors.edit');
 Route::put('/doctors/{id}', [DoctorController::class, 'update'])->name('doctors.update');
+Route::delete('/doctors/{id}', [DoctorController::class, 'destroy'])->name('doctors.destroy');
