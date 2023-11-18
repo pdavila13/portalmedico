@@ -40,4 +40,22 @@ class DoctorController extends Controller
         //dd($request);
         return redirect()->route('doctors.index')->with('message', 'Doctor guardado correctamente.')->with('code','0');
     }
+
+    public function edit($id) {
+        $doctors = [
+            [1, 'Paolo', 'Davila', 'Neurólogo'],
+            [2, 'Gabriel', 'Bazalar', 'Cardiólogo']
+        ];
+
+        $key = -1;
+        $i = 0;
+        while (($key < 0) && ($i < count ($doctors))) {
+            if($doctors[$i][0] == $id) {
+                $key = $i;
+            }
+            $i++;
+        }
+
+        return view('doctors.edit', ['doctor' => $doctors[$key]]);
+    }
 }
