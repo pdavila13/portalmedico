@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\DoctorRequest;
 
 class DoctorController extends Controller
 {
@@ -36,7 +37,7 @@ class DoctorController extends Controller
         return view('doctors.create');
     }
 
-    public function store(Request $request) {
+    public function store(DoctorRequest $request) {
         return redirect()->route('doctors.index')->with('message', 'Doctor guardado correctamente.')->with('code','0');
     }
 

@@ -19,7 +19,7 @@
                 </x-slot:texto>
 
                 <x-slot:botones>
-                    <button type="submit" class="text-white bg-slate-300 m-4 p-1">Ver</button>
+                    <button type="submit" class="text-white bg-slate-300 m-4 p-1">Guardar</button>
                 </x-slot:botones>    
             </x-card>
         </form>
