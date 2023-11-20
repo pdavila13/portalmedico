@@ -28,7 +28,7 @@ class DoctorRequest extends FormRequest
 
         return [
             'nombre' => 'required|min:3',
-            'especialidad' => 'required|par'
+            'especialidad' => 'required|max:200'
         ];
     }
 
