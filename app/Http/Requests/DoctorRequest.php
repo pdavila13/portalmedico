@@ -23,7 +23,17 @@ class DoctorRequest extends FormRequest
     {
         return [
             'nombre' => 'required',
-            'especialidad' => 'required',
+            'especialidad' => 'required'
+        ];
+    }
+
+    public function message()
+    {
+        return [
+            'nombre.required' => 'El nombre es obligatorio',
+            'especialidad' => [
+                'required' => 'La especialidad es obligatoria'
+            ]
         ];
     }
 }

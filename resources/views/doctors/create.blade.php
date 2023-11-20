@@ -6,6 +6,13 @@
 
 @section('content')
     <h1>Cuatro Médico</h1>
+    @error('nombre')
+        {{ $message }}
+    @enderror
+
+    @error('especialidad')
+        {{ $message }}
+    @enderror
     <div class="flex">
         <form method="POST" action="{{ route('doctors.store') }}">
             @csrf
