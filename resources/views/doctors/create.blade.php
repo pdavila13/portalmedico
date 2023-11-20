@@ -6,13 +6,11 @@
 
 @section('content')
     <h1>Cuatro Médico</h1>
-    @error('nombre')
-        {{ $message }}
-    @enderror
 
-    @error('especialidad')
-        {{ $message }}
-    @enderror
+    @foreach ($errors->all() as $error )
+        {{ $error }}<br/>
+    @endforeach
+
     <div class="flex">
         <form method="POST" action="{{ route('doctors.store') }}">
             @csrf
