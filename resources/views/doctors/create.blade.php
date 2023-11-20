@@ -18,9 +18,15 @@
                 <x-slot:texto>
                 <label for="nombre">Nombre:</label>
                 <input type="text" name="nombre" id="nombre" value="">
+                @error('nombre')
+                    {{ $message }}
+                @enderror
                 <br>&nbsp;<br>
                 <label for="especialidad">Especialidad:</label>
                 <input type="text" name="especialidad" id="especialidad" value="">
+                @error('especialidad')
+                    {{ $message }}
+                @enderror
                 </x-slot:texto>
 
                 <x-slot:botones>
