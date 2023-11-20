@@ -27,13 +27,16 @@ class DoctorRequest extends FormRequest
         ];
     }
 
-    public function message()
+    public function messages()
     {
-        return [
+        $mensajes = [
             'nombre.required' => 'El nombre es obligatorio',
             'especialidad' => [
                 'required' => 'La especialidad es obligatoria'
             ]
         ];
+        $mensajes = array_merge($mensajes, ['nombre.email' => 'El nombre no representa un email']);
+
+        return $mensajes;
     }
 }
