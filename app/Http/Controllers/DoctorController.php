@@ -10,10 +10,15 @@ use App\Http\Requests\DoctorRequest;
 class DoctorController extends Controller
 {
     public function index() {
+        /*
         $doctors = [
             [1, 'Paolo', 'Davila', 'Neurólogo'],
             [2, 'Gabriel', 'Bazalar', 'Cardiólogo']
         ];
+        */
+
+        $doctors = DB::table('doctors')->get();
+
         return view('doctors.index', ['doctors' => $doctors]);
     }
 
