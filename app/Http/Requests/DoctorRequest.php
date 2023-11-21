@@ -27,17 +27,17 @@ class DoctorRequest extends FormRequest
         });
 
         return [
-            'nombre' => 'required|min:3',
-            'especialidad' => 'required|max:200'
+            'name' => 'required|min:3',
+            'speciality' => 'required|max:200'
         ];
     }
 
     public function messages()
     {
         $mensajes = [
-            'nombre.required' => 'El nombre es obligatorio'
+            'name.required' => 'El nombre es obligatorio'
         ];
-        $mensajes = array_merge($mensajes, ['nombre.email' => 'El nombre no representa un email']);
+        $mensajes = array_merge($mensajes, ['name.email' => 'El nombre no representa un email']);
 
         return $mensajes;
     }

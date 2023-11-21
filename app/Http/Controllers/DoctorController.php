@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Doctor;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Http\Requests\DoctorRequest;
 
 class DoctorController extends Controller
@@ -39,6 +40,26 @@ class DoctorController extends Controller
     }
 
     public function store(DoctorRequest $request) {
+        /*
+        // Método 1: Obtener datos de forma manual mediante array
+        $doctor = [
+            'name' => $request->name,
+            'middleName' => $request->input('middleName'),
+
+        ];
+        */
+
+        //Método 2: Devuelve los campos validados
+        $doctor = $request->validated();
+        $doctor['middleName'] = $request->input('middleName');
+        $doctor['lastName'] = $request->input('lastName');
+        $doctor['speciality'] = $request->input('speciality');
+        $doctor['phone'] = $request->input('phone');
+        $doctor['dni'] = $request->input('dni');
+        $doctor['email'] = $request->input('email');
+
+        DB::table('doctors')->insert($doctor);
+
         return redirect()->route('doctors.index')->with('message', 'Doctor guardado correctamente.')->with('code','0');
     }
 
