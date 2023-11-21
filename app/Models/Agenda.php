@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Agenda extends Model
 {
     use HasFactory;
+
+    protected $connection = 'misegundabd';
+    protected $table = "Mi_Agenda";
+    protected $primarykey = ['year','month','day'];
 }
