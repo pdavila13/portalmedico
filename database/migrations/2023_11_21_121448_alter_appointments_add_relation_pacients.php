@@ -11,7 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::table('appointments', function (Blueprint $table) {
+            $table->foreignId('patient_id')->after('date')->constrained();
+        });
     }
 
     /**
@@ -19,6 +21,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::table('appointments', function (Blueprint $table) {
+            $table->dropForeing('appointments_patient_id_foreign');
+        });
     }
 };
