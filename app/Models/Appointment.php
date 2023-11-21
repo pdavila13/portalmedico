@@ -14,4 +14,9 @@ class Appointment extends Model
         //Relations OneToMany
         return $this->hasMany(Appointment::class);
     }
+
+    public function doctors() {
+        //Relations ManyToMany
+        return $this->belongsToMany(Doctor::class);
+    }
 }

@@ -8,4 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Patient extends Model
 {
     use HasFactory;
+
+    public function appointments()
+    {
+        //Relations OneToMany
+        return $this->hasMany(Appointment::class);
+    }
+
+    public function doctors() {
+        //Relations ManyToMany
+        return $this->belongsToMany(Doctor::class);
+    }
 }

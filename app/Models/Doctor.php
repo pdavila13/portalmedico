@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Doctor extends Model
 {
     use HasFactory;
+
+    public function patients() {
+        //Relations ManyToMany
+        return $this->belongsToMany(Patient::class);
+    }
 }
