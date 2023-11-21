@@ -9,14 +9,8 @@ class Appointment extends Model
 {
     use HasFactory;
 
-    public function appointments()
-    {
-        //Relations OneToMany
-        return $this->hasMany(Appointment::class);
-    }
-
-    public function doctors() {
+    public function patients() {
         //Relations ManyToMany
-        return $this->belongsToMany(Doctor::class);
+        return $this->belongsToMany(Patient::class);
     }
 }
