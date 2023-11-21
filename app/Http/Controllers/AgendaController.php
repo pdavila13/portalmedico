@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Agenda;
+use App\Models\External\ExternalModel;
 use Illuminate\Http\Request;
 
 class AgendaController extends Controller

@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\External;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Agenda extends Model
+class ExternalModel extends Model
 {
     use HasFactory;
 
