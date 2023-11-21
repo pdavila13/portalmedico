@@ -11,6 +11,6 @@ class Appointment extends Model
 
     public function patients() {
         //Relations ManyToMany
-        return $this->belongsToMany(Patient::class);
+        return $this->belongsTo(Patient::class);
     }
 }
