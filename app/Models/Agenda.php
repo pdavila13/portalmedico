@@ -12,4 +12,5 @@ class Agenda extends Model
     protected $connection = 'misegundabd';
     protected $table = "Mi_Agenda";
     protected $primarykey = ['year','month','day'];
+    protected $incrementing = false;
 }
