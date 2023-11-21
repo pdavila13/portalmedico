@@ -14,19 +14,15 @@
     <div class="flex">
         <form method="POST" action="{{ route('doctors.store') }}">
             @csrf
-            <x-card nombre="Nuevo Doctor" bgcolor="A0A0FF" ancho=80>
+            <x-card nombre="Nuevo Doctor" bgcolor="A0A0FF" ancho=600>
                 <x-slot:texto>
-                <label for="nombre">Nombre:</label>
-                <input type="text" name="nombre" id="nombre" value="{{ old('nombre') }}">
-                @error('nombre')
-                    {{ $message }}
-                @enderror
-                <br>&nbsp;<br>
-                <label for="especialidad">Especialidad:</label>
-                <input type="text" name="especialidad" id="especialidad" value="{{ old('especialidad') }}">
-                @error('especialidad')
-                    {{ $message }}
-                @enderror
+                    <x-field name="name" label="Nombre" :value="old('name')"/>
+                    <x-field name="middleName" label="Primer Apellido" :value="old('middleName')"/>
+                    <x-field name="lastName" label="Segundo Apellido" :value="old('lastName')"/>
+                    <x-field name="speciality" label="Especialidad" :value="old('speciality')"/>
+                    <x-field name="phone" label="Teléfono" :value="old('phone')"/>
+                    <x-field name="dni" label="Nº Identificación" :value="old('dni')"/>
+                    <x-field name="email" label="Correo electrónico" :value="old('email')"/>
                 </x-slot:texto>
 
                 <x-slot:botones>

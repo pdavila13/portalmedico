@@ -15,6 +15,10 @@
         {{ $message }}
     </div>
     @endif
-    
+    <br>
+    <div>
+        <a href="{{ route('doctors.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Nuevo Doctor</a>
+    </div>
+
     <x-listado rutashow="doctors.show" :items="$doctors"/>
 @endsection
