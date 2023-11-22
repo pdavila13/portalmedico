@@ -1,26 +1,37 @@
-@extends('patients.layout')
+@extends('layout')
+
+@section('menu')
+    <x-menu/>
+@endsection
 
 @section('content')
-    Contenido para el layout principal.
+    <h1>Pacientes</h1>
 
-    <x-card bgcolor="FFA0A0" :nombre="$nombre" fecha="13/11/2023">
-        <x-slot:texto >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <strong>Duis aute irure dolor in reprehenderit 
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur</strong>. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-            mollit anim id est laborum.
-        </x-slot:texto>
-    </x-card>
-
-    <x-card bgcolor="FFA0A0" :nombre="$nombre">
-        <x-slot:texto >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. <strong>Duis aute irure dolor in reprehenderit 
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur</strong>. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt 
-            mollit anim id est laborum.
-        </x-slot:texto>
-    </x-card>
-    <x-buttons canEdit="1"/>
+    @if ($message = Session::get('message'))
+    <div>
+        @if ($code = Session::get('code'))
+            {{ $code }} &nbsp;-&nbsp;
+        @endif
+        {{ $message }}
+    </div>
+    @endif
     <br>
-    <x-buttons canEdit="0"/>
+    <div>
+        <a href="{{ route('patients.create') }}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">Nuevo Paciente</a>
+    </div>
+    <div class="flex flex-wrap -mb-4">
+        @foreach ($patients as $key => $pacient)
+            <x-card nombre="{{ $pacient->name }} {{ $pacient->middleName }}" bgcolor="A0FFFF" ancho="300" texto="{{ $pacient->email }}">
+                <x-slot:botones>
+                    <a href="{{ route('patients.show', $pacient->id) }}" class="text-white bg-slate-300 m-4 p-1">Ver</a>
+                </x-slot:botones>
+            </x-card>
+        @endforeach
+    </div>
+
+    @isset ($patients->onEachSide)
+    <br>
+    {{ $patients->total() }}
+    @endisset
+
 @endsection
