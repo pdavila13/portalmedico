@@ -23,6 +23,7 @@ class DoctorController extends Controller
     }
 
     public function show($id) {
+        /*
         $doctors = [
             [1, 'Paolo', 'Davila', 'Neurólogo'],
             [2, 'Gabriel', 'Bazalar', 'Cardiólogo']
@@ -36,8 +37,11 @@ class DoctorController extends Controller
             }
             $i++;
         }
+        */
 
-        return view('doctors.show', ['doctor' => $doctors[$key]]);
+        $doctor = DB::table('doctors')->find($id);
+
+        return view('doctors.show', ['doctor' => $doctor[$id]]);
     }
 
     public function create() {
@@ -58,7 +62,6 @@ class DoctorController extends Controller
         $doctor = $request->validated();
         $doctor['middleName'] = $request->input('middleName');
         $doctor['lastName'] = $request->input('lastName');
-        $doctor['speciality'] = $request->input('speciality');
         $doctor['phone'] = $request->input('phone');
         $doctor['dni'] = $request->input('dni');
         $doctor['email'] = $request->input('email');
@@ -69,6 +72,7 @@ class DoctorController extends Controller
     }
 
     public function edit($id) {
+        /*
         $doctors = [
             [1, 'Paolo', 'Davila', 'Neurólogo'],
             [2, 'Gabriel', 'Bazalar', 'Cardiólogo']
@@ -82,11 +86,24 @@ class DoctorController extends Controller
             }
             $i++;
         }
+        */
 
-        return view('doctors.edit', ['doctor' => $doctors[$key]]);
+        $doctor = DB::table('doctors')->find($id);
+
+        return view('doctors.edit', ['doctor' => $doctor[$id]]);
     }
 
     public function update(DoctorRequest $request, $id) {
+        $doctor = $request->validated();
+        $doctor['middleName'] = $request->input('middleName');
+        $doctor['lastName'] = $request->input('lastName');
+        $doctor['phone'] = $request->input('phone');
+        $doctor['dni'] = $request->input('dni');
+        $doctor['email'] = $request->input('email');
+
+        $doctor['id'] = $id;
+
+        DB::table('doctors')->insert($doctor);
         return redirect()->route('doctors.index')->with('message', 'Doctor guardado correctamente.')->with('code','0');
     }
     
