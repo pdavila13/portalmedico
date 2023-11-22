@@ -21,6 +21,12 @@
                     @method('DELETE')
                     <button type="submit" class="text-white bg-slate-300 m-4 p-1">Borrar</button>
                 </form>
+
+                <form action="{{ route('doctors.softdelete', $doctor->id) }}" method="post">
+                    @csrf
+                    @method('PATCH')
+                    <button type="submit" class="text-white bg-slate-300 m-4 p-1">Baja</button>
+                </form>
             </x-slot:botones>
         </x-card>
     </div>

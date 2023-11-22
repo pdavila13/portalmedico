@@ -62,6 +62,13 @@ class DoctorController extends Controller
         return redirect()->route('doctors.index')->with('message', 'Doctor guardado correctamente.')->with('code','0');
     }
 
+    public function softdelete($id) {
+
+        DB::table('doctors')->where('id', '=', $id)->update(['down' => 'S']);
+
+        return redirect()->route('doctors.index')->with('message', 'Doctor dado de baja correctamente.')->with('code','0');
+    }
+
     public function destroy($id) {
 
         DB::table('doctors')->delete($id);
