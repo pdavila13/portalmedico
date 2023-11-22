@@ -11,7 +11,11 @@ class DoctorController extends Controller
 {
     public function index() {
 
-        $doctors = DB::table('doctors')->get();
+        $doctors = DB::table('doctors')
+        ->whereNull('down')
+        //->whereNotNull('down')
+        //->whereRaw("name like '%v%' or name like '%v%' ")
+        ->get();
 
         return view('doctors.index', ['doctors' => $doctors]);
     }
