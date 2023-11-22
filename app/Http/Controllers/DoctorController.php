@@ -10,12 +10,6 @@ use App\Http\Requests\DoctorRequest;
 class DoctorController extends Controller
 {
     public function index() {
-        /*
-        $doctors = [
-            [1, 'Paolo', 'Davila', 'Neurólogo'],
-            [2, 'Gabriel', 'Bazalar', 'Cardiólogo']
-        ];
-        */
 
         $doctors = DB::table('doctors')->get();
 
@@ -23,25 +17,10 @@ class DoctorController extends Controller
     }
 
     public function show($id) {
-        /*
-        $doctors = [
-            [1, 'Paolo', 'Davila', 'Neurólogo'],
-            [2, 'Gabriel', 'Bazalar', 'Cardiólogo']
-        ];
-
-        $key = -1;
-        $i = 0;
-        while (($key < 0) && ($i < count ($doctors))) {
-            if($doctors[$i][0] == $id) {
-                $key = $i;
-            }
-            $i++;
-        }
-        */
 
         $doctor = DB::table('doctors')->find($id);
 
-        return view('doctors.show', ['doctor' => $doctor[$id]]);
+        return view('doctors.show', ['doctor' => $doctor]);
     }
 
     public function create() {
@@ -49,16 +28,7 @@ class DoctorController extends Controller
     }
 
     public function store(DoctorRequest $request) {
-        /*
-        // Método 1: Obtener datos de forma manual mediante array
-        $doctor = [
-            'name' => $request->name,
-            'middleName' => $request->input('middleName'),
 
-        ];
-        */
-
-        //Método 2: Devuelve los campos validados
         $doctor = $request->validated();
         $doctor['middleName'] = $request->input('middleName');
         $doctor['lastName'] = $request->input('lastName');
@@ -72,25 +42,10 @@ class DoctorController extends Controller
     }
 
     public function edit($id) {
-        /*
-        $doctors = [
-            [1, 'Paolo', 'Davila', 'Neurólogo'],
-            [2, 'Gabriel', 'Bazalar', 'Cardiólogo']
-        ];
-
-        $key = -1;
-        $i = 0;
-        while (($key < 0) && ($i < count ($doctors))) {
-            if($doctors[$i][0] == $id) {
-                $key = $i;
-            }
-            $i++;
-        }
-        */
 
         $doctor = DB::table('doctors')->find($id);
 
-        return view('doctors.edit', ['doctor' => $doctor[$id]]);
+        return view('doctors.edit', ['doctor' => $doctor]);
     }
 
     public function update(DoctorRequest $request, $id) {
@@ -106,7 +61,7 @@ class DoctorController extends Controller
         DB::table('doctors')->insert($doctor);
         return redirect()->route('doctors.index')->with('message', 'Doctor guardado correctamente.')->with('code','0');
     }
-    
+
     public function destroy($id) {
         return redirect()->route('doctors.index')->with('message', 'Doctor borrado correctamente.')->with('code','0');
     }
