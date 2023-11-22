@@ -15,7 +15,7 @@ class DoctorController extends Controller
         ->whereNull('down')
         //->whereNotNull('down')
         //->whereRaw("name like '%v%' or name like '%v%' ")
-        ->get();
+        ->paginate(5);
 
         return view('doctors.index', ['doctors' => $doctors]);
     }

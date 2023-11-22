@@ -21,4 +21,7 @@
     </div>
 
     <x-listado rutashow="doctors.show" :items="$doctors"/>
+    {{ $doctors->total() }}
+    <br>
+    {{ $doctors->currentPage() }}
 @endsection
