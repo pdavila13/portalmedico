@@ -56,9 +56,7 @@ class DoctorController extends Controller
         $doctor['dni'] = $request->input('dni');
         $doctor['email'] = $request->input('email');
 
-        $doctor['id'] = $id;
-
-        DB::table('doctors')->insert($doctor);
+        DB::table('doctors')->where('id', '=', $id)->update($doctor);
         return redirect()->route('doctors.index')->with('message', 'Doctor guardado correctamente.')->with('code','0');
     }
 
