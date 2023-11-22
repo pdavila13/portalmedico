@@ -49,6 +49,7 @@ class DoctorController extends Controller
     }
 
     public function update(DoctorRequest $request, $id) {
+
         $doctor = $request->validated();
         $doctor['middleName'] = $request->input('middleName');
         $doctor['lastName'] = $request->input('lastName');
@@ -57,10 +58,14 @@ class DoctorController extends Controller
         $doctor['email'] = $request->input('email');
 
         DB::table('doctors')->where('id', '=', $id)->update($doctor);
+
         return redirect()->route('doctors.index')->with('message', 'Doctor guardado correctamente.')->with('code','0');
     }
 
     public function destroy($id) {
+
+        DB::table('doctors')->delete($id);
+
         return redirect()->route('doctors.index')->with('message', 'Doctor borrado correctamente.')->with('code','0');
     }
 }
