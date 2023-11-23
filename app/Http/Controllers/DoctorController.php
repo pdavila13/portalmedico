@@ -34,18 +34,13 @@ class DoctorController extends Controller
     public function show($id) {
 
         $user = User::find(1);
-        if ($user->hasRole('admin')) {
-            if ($user->can('doctorEdit')) {
-                return redirect()->route('doctors.edit', $id);
-            } else {
-                return redirect()->route('doctors.index', $id);
-            }
 
+        if ($user->can('doctorView')) {
+            $doctor = DB::table('doctors')->find($id);
+            return view('doctors.show', ['doctor' => $doctor]);
+        } else {
+            return redirect()->route('doctors.index');
         }
-
-        $doctor = DB::table('doctors')->find($id);
-
-        return view('doctors.show', ['doctor' => $doctor]);
     }
 
     public function create() {
