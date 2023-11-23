@@ -44,7 +44,13 @@ class DoctorController extends Controller
     }
 
     public function create() {
-        return view('doctors.create');
+        $user = User::find(1);
+
+        if ($user->can('doctorCreate')) {
+            return view('doctors.create');
+        } else {
+            return redirect()->route('doctors.index');
+        }
     }
 
     public function store(DoctorRequest $request) {
