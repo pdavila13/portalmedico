@@ -23,14 +23,20 @@ class DoctorController extends Controller
         //->whereNotNull('down')
         //->whereRaw("name like '%v%' or name like '%v%' ")
         ->paginate(5);
-
+        /*
         $user = User::find(1);
         $user->assignRole('admin');
+        */
 
         return view('doctors.index', ['doctors' => $doctors]);
     }
 
     public function show($id) {
+
+        $user = User::find(1);
+        if ($user->hasRole('admin')) {
+            return redirect()->route('doctors.edit', $id);
+        }
 
         $doctor = DB::table('doctors')->find($id);
 
