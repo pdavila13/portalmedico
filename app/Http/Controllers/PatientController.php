@@ -54,7 +54,7 @@ class PatientController extends Controller
      */
     public function edit(Patient $patient)
     {
-        //
+        return view('patients.edit', compact('patient'));
     }
 
     /**
