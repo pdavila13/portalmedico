@@ -14,8 +14,8 @@ class RoleSeeder extends Seeder
      */
     public function run(): void
     {
-        $admin = Role::create(['name' => 'admin', 'guard_name' => 'admin']);
-        $user = Role::create(['name' => 'user', 'guard_name' => 'user']);
+        $admin = Role::create(['name' => 'admin', 'guard_name' => 'web']);
+        $user = Role::create(['name' => 'user', 'guard_name' => 'web']);
 
         // ASignar todos los permisos a admin
         DB::insert('insert into role_has_permissions (role_id,permission_id) select 1, id from permissions', []);

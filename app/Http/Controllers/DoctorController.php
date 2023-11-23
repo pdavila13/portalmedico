@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use App\Models\Doctor;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -22,6 +23,9 @@ class DoctorController extends Controller
         //->whereNotNull('down')
         //->whereRaw("name like '%v%' or name like '%v%' ")
         ->paginate(5);
+
+        $user = User::find(1);
+        $user->assignRole('admin');
 
         return view('doctors.index', ['doctors' => $doctors]);
     }
