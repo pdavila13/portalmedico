@@ -11,7 +11,7 @@ class DoctorController extends Controller
 {
     public function _construct() {
 
-        $this->middleware('filter')->only('show');
+        $this->middleware('filter')->only(['index','show']);
 
     }
 
