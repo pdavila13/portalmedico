@@ -62,7 +62,15 @@ class PatientController extends Controller
      */
     public function update(Request $request, Patient $patient)
     {
-        //
+        $patient->name = $request->input('name');
+        $patient->middleName = $request->input('middleName');
+        $patient->lastName = $request->input('lastName');
+        $patient->email = $request->input('email');
+
+        $patient->saveOrFail();
+
+        return redirect()->route('patients.index')->with('message', 'Paciente guardado correctamente.')->with('code','0');
+
     }
 
     /**
