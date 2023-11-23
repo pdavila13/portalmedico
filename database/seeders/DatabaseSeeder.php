@@ -5,6 +5,7 @@ namespace Database\Seeders;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Database\Seeders\DoctorSeeder;
+use Database\Seeders\PermissionSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,7 +20,10 @@ class DatabaseSeeder extends Seeder
         //     'name' => 'Test User',
         //     'email' => 'test@example.com',
         // ]);
-        $this->call([PatientSeeder::class]);
-        $this->call([DoctorSeeder::class]);
+        //$this->call([PatientSeeder::class]);
+        //$this->call([DoctorSeeder::class]);
+
+        $this->call([PermissionSeeder::class]);
+        $this->call([RoleSeeder::class]);
     }
 }
