@@ -15,6 +15,10 @@ class FilterMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
+        if ($request->id) {
+            return redirect()->route('doctors.show', ['id' => $request->id]);
+        }
+
         return $next($request);
     }
 }
