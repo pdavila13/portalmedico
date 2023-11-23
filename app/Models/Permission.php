@@ -7,5 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Permission extends Model
 {
-    use HasFactory;
+    use HasFactory, softDeletes;
+
+    public function users() {
+        $this->belongsToMany(User::class);
+    }
 }
