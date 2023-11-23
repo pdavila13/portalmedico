@@ -78,6 +78,7 @@ class PatientController extends Controller
      */
     public function destroy(Patient $patient)
     {
-        //
+        $patient->deleteOrFail();
+        return redirect()->route('patients.index')->with('message', 'Paciente borrado correctamente.')->with('code','0');
     }
 }
