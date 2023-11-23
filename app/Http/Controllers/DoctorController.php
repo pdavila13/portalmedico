@@ -54,17 +54,20 @@ class DoctorController extends Controller
     }
 
     public function store(DoctorRequest $request) {
+        $user = User::find(1);
 
-        $doctor = $request->validated();
-        $doctor['middleName'] = $request->input('middleName');
-        $doctor['lastName'] = $request->input('lastName');
-        $doctor['phone'] = $request->input('phone');
-        $doctor['dni'] = $request->input('dni');
-        $doctor['email'] = $request->input('email');
+        if ($user->can('doctorCreate')) {
+            $doctor = $request->validated();
+            $doctor['middleName'] = $request->input('middleName');
+            $doctor['lastName'] = $request->input('lastName');
+            $doctor['phone'] = $request->input('phone');
+            $doctor['dni'] = $request->input('dni');
+            $doctor['email'] = $request->input('email');
 
-        DB::table('doctors')->insert($doctor);
+            DB::table('doctors')->insert($doctor);
 
-        return redirect()->route('doctors.index')->with('message', 'Doctor guardado correctamente.')->with('code','0');
+            return redirect()->route('doctors.index')->with('message', 'Doctor guardado correctamente.')->with('code','0');
+        }
     }
 
     public function edit($id) {
