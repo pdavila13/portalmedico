@@ -35,7 +35,12 @@ class DoctorController extends Controller
 
         $user = User::find(1);
         if ($user->hasRole('admin')) {
-            return redirect()->route('doctors.edit', $id);
+            if ($user->can('doctorEdit')) {
+                return redirect()->route('doctors.edit', $id);
+            } else {
+                return redirect()->route('doctors.index', $id);
+            }
+
         }
 
         $doctor = DB::table('doctors')->find($id);
