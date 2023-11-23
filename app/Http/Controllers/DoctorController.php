@@ -76,7 +76,7 @@ class DoctorController extends Controller
 
     public function update(DoctorRequest $request, $id) {
         $user = User::find(1);
-        if (!$user->can('doctorCreate')) {
+        if (!$user->can('doctorEdit')) {
             return redirect()->route('doctors.index')->with('code','403')->with('message', 'No puedes realizar esta acción.');
         }
 
