@@ -9,6 +9,12 @@ use App\Http\Requests\DoctorRequest;
 
 class DoctorController extends Controller
 {
+    public function _construct() {
+
+        $this->middleware('filter')->only('show');
+
+    }
+
     public function index() {
 
         $doctors = DB::table('doctors')

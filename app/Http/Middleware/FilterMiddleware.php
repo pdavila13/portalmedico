@@ -15,8 +15,8 @@ class FilterMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (isset($request->id)) {
-            return redirect()->route('doctors.show', ['id' => $request->id]);
+        if (isset($request->redigir)) {
+            return redirect()->route('patients.index');
         }
 
         return $next($request);
